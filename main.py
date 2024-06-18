@@ -11,11 +11,14 @@ class MyClient(commands.Bot):
         super().__init__(command_prefix="!", intents=discord.Intents.all())
 
     async def on_ready(self):
+        # load normal commands
         await super().load_extension("testCommands")
-        print(f"Login successfully with user: {self.user}")
 
+        # load command tree
         super().tree.copy_global_to(guild=settings.GUILD_ID)
         await super().tree.sync(guild=settings.GUILD_ID)
+
+        print(f"Login successful with user: {self.user}")
 
 
 bot = MyClient()
