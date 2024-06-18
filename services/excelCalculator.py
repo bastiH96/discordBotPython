@@ -38,7 +38,7 @@ class ExcelService:
         first_column = self.first_column
         workbook_title = self.table_header()
         for month in range(1, 13):
-            last_column = first_column + len(self.persons) + 1 # because of DAY | WEEKDAY | PERSON1 | PERSON2 etc.
+            last_column = first_column + len(self.persons) + 1  # because of DAY | WEEKDAY | PERSON1 | PERSON2 etc.
             days_in_month = monthrange(self.comparing_year.year, month)[1]
             
             self.add_month_name_header(first_column, last_column, month)

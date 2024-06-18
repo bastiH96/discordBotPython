@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0f52668-907f-4831-bb70-3a0293183b88" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/models/person.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/shiftsystem.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/excelCalculator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/discordBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discordBot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a0f52668-907f-4831-bb70-3a0293183b88" name="Changes" comment="added excel functions and models to project">
+      <change afterPath="$PROJECT_DIR$/dataAccess/person_data_access.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataAccess/shiftsystem_data_access.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/excelCalculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/excelCalculator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,12 +59,13 @@
     "Python.personModal.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/sebas/PycharmProjects/discordBot/services",
+    "last_opened_file_path": "C:/Users/sebas/PycharmProjects/discordBot/dataAccess",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sebas\PycharmProjects\discordBot\dataAccess" />
       <recent name="C:\Users\sebas\PycharmProjects\discordBot\services" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -147,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718711184090</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added excel functions and models to project">
+      <option name="closed" value="true" />
+      <created>1718726304399</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1718726304399</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,6 +172,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="added excel functions and models to project" />
+    <option name="LAST_COMMIT_MESSAGE" value="added excel functions and models to project" />
   </component>
 </project>

@@ -3,6 +3,8 @@ from discord.ext import commands
 from settings import settings
 from applicationCommands.createPerson import PersonModal
 from applicationCommands.createShiftsystem import ShiftsystemModel
+from dataAccess.person_data_access import PersonDataAccess
+from dataAccess.shiftsystem_data_access import ShiftsystemDataAccess
 
 
 class MyClient(commands.Bot):
@@ -11,6 +13,10 @@ class MyClient(commands.Bot):
         super().__init__(command_prefix="!", intents=discord.Intents.all())
 
     async def on_ready(self):
+        # create database
+        ShiftsystemDataAccess().create_shiftsystem_table()
+        PersonDataAccess().create_person_table()
+
         # load normal commands
         await super().load_extension("testCommands")
 
