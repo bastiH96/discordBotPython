@@ -1,8 +1,8 @@
 import discord
 from discord.ext import commands
-import settings
-from createPerson import PersonModal
-from createShiftsystem import ShiftsystemModel
+from settings import settings
+from applicationCommands.createPerson import PersonModal
+from applicationCommands.createShiftsystem import ShiftsystemModel
 
 
 class MyClient(commands.Bot):
