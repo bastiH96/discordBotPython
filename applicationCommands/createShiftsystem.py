@@ -1,5 +1,7 @@
 import discord
 from discord import ui
+from models.shiftsystem import Shiftsystem
+from dataAccess.shiftsystem_data_access import ShiftsystemDataAccess
 
 
 class ShiftsystemModel(ui.Modal, title="Create new Shiftsystem"):
@@ -15,4 +17,7 @@ class ShiftsystemModel(ui.Modal, title="Create new Shiftsystem"):
 
     async def on_submit(self, interaction: discord.Interaction):
         shiftpattern = self.pattern.value.split("\n")
-        await interaction.response.send_message(shiftpattern)
+        shiftsystem = Shiftsystem(self.name.value, shiftpattern)
+        ShiftsystemDataAccess().insert_shiftsystem(shiftsystem)
+
+        await interaction.response.send_message("Shiftsystem was created successfully!")
