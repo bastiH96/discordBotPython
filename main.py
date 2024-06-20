@@ -3,6 +3,7 @@ from discord.ext import commands
 from settings import settings
 from applicationCommands.createPerson import PersonModal
 from applicationCommands.createShiftsystem import ShiftsystemModel
+from applicationCommands.createComparisonTable import ComparisonTableModal
 from dataAccess.person_data_access import PersonDataAccess
 from dataAccess.shiftsystem_data_access import ShiftsystemDataAccess
 
@@ -39,6 +40,12 @@ async def shiftsystem_modal(interaction: discord.Interaction):
 @bot.tree.command(description="create a new person", name="create_person")
 async def person_modal(interaction: discord.Interaction):
     modal = PersonModal()
+    await interaction.response.send_modal(modal)
+
+
+@bot.tree.command(description="create a new comparison table", name="create_comparison_table")
+async def comparison_table_modal(interaction: discord.Interaction):
+    modal = ComparisonTableModal()
     await interaction.response.send_modal(modal)
 
 

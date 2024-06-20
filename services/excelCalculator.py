@@ -6,11 +6,12 @@ from datetime import date
 from typing import List
 from calendar import monthrange, month_name
 import os
+from settings import settings
 
 
 class ExcelService:
     
-    def __init__(self, persons: List[Person], year: int, path: str = ""):
+    def __init__(self, persons: List[Person], year: int, path: str = settings.EXCEL_FOLDER):
         self.persons = persons
         self.comparing_year = date(year, 1, 1)
         self.path = path
@@ -22,7 +23,8 @@ class ExcelService:
 
     def create_excel_comparison_table(self):
         self.set_shiftpattern_iterators()
-        self.add_content_to_worksheet()
+        full_path = self.add_content_to_worksheet()
+        return full_path
 
     def set_shiftpattern_iterators(self):
         for person in self.persons:
@@ -57,7 +59,9 @@ class ExcelService:
         self.ws.cell(self.first_row + 1, self.first_column).border = Border(left=Sides.medium)
         
         # self.wb.save(f"{self.path}{workbook_title}.xlsx")
-        self.wb.save(os.path.join(self.path, f"{workbook_title}.xlsx"))
+        full_path = os.path.join(self.path, f"{workbook_title}.xlsx")
+        self.wb.save(full_path)
+        return full_path
 
     def table_header(self):
         person_names = ""
