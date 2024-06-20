@@ -1,5 +1,5 @@
 from typing import List
-from datetime import date
+from datetime import date, datetime
 import re
 
 
@@ -40,5 +40,11 @@ class Validator:
 
         else:
             return False
+
+    @staticmethod
+    def is_valid_year(year):
+        if date.today().year - 50 <= int(year) <= date.today().year + 50:
+            return True
+        return False
 
 

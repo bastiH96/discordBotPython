@@ -21,7 +21,7 @@ class ExcelService:
         self.first_column = 2
         self.first_row = 2
 
-    def create_excel_comparison_table(self):
+    def create_excel_comparison_table(self) -> str:
         self.set_shiftpattern_iterators()
         full_path = self.add_content_to_worksheet()
         return full_path

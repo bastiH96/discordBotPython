@@ -2,7 +2,9 @@ import discord
 from discord import ui
 from dataAccess.person_data_access import PersonDataAccess
 from services.excelCalculator import ExcelService
-
+import os
+import time
+from services.validation import Validator
 
 comparison_table_infos = {}
 
@@ -20,6 +22,8 @@ class PersonsSelect(ui.Select):
         full_path = ExcelService(persons, comparison_table_infos["year"]).create_excel_comparison_table()
         message = f"Here is your comparison table for {comparison_table_infos["year"]}"
         await interaction.response.send_message(content=message, file=discord.File(fp=full_path))
+        time.sleep(2)
+        os.remove(full_path)
 
     @staticmethod
     def load_persons():
@@ -40,5 +44,11 @@ class ComparisonTableModal(ui.Modal, title="Create new comparison table"):
                         required=True)
 
     async def on_submit(self, interaction: discord.Interaction):
-        comparison_table_infos["year"] = int(self.year.value)
-        await interaction.response.send_message(view=PersonsSelectView())
+        if not Validator.are_integers([self.year.value]):
+            await interaction.response.send_message("You haven't entered a valid year. Please try again.")
+        elif not Validator.is_valid_year(self.year.value):
+            await interaction.response.send_message("You haven't entered a valid year. It must be +-50 years around "
+                                                    "the current year.")
+        else:
+            comparison_table_infos["year"] = int(self.year.value)
+            await interaction.response.send_message(view=PersonsSelectView())
