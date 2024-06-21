@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0f52668-907f-4831-bb70-3a0293183b88" name="Changes" comment="added user input validation for creating a person and a shiftsystem functions">
+    <list default="true" id="a0f52668-907f-4831-bb70-3a0293183b88" name="Changes" comment="adjustments comparison table and create person">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationCommands/createComparisonTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/applicationCommands/createComparisonTable.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/applicationCommands/createPerson.py" beforeDir="false" afterPath="$PROJECT_DIR$/applicationCommands/createPerson.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/excelCalculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/excelCalculator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718875751835</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="adjustments comparison table and create person">
+      <option name="closed" value="true" />
+      <created>1718913333199</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1718913333199</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -200,6 +206,7 @@
     <MESSAGE value="DB_PATH is now hidden in the .env file" />
     <MESSAGE value="added function to create a person and shiftsystem" />
     <MESSAGE value="added user input validation for creating a person and a shiftsystem functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="added user input validation for creating a person and a shiftsystem functions" />
+    <MESSAGE value="adjustments comparison table and create person" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjustments comparison table and create person" />
   </component>
 </project>

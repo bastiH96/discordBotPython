@@ -1,5 +1,9 @@
+from typing import Any
+
 import discord
-from discord import ui
+from discord import ui, Interaction
+from discord._types import ClientT
+
 from dataAccess.shiftsystem_data_access import ShiftsystemDataAccess
 from dataAccess.person_data_access import PersonDataAccess
 from models.person import Person
@@ -8,7 +12,39 @@ from services.validation import Validator
 
 person_infos = {}
 
-# ----  ----
+
+# -----------
+# SELECT OPTION MENU
+# -----------
+class CreatePersonButton(ui.Button):
+    def __init__(self):
+        super().__init__(label="Create Person")
+
+    async def callback(self, interaction: discord.Interaction):
+        await interaction.response.send_modal(PersonModal())
+
+
+class DeletePersonButton(ui.Button):
+    def __init__(self):
+        super().__init__(label="Delete Person")
+
+
+class EditPersonButton(ui.Button):
+    def __init__(self):
+        super().__init__(label="Edit Person")
+
+
+class PersonButtonsView(ui.View):
+    def __init__(self, *, timeout=180):
+        super().__init__(timeout=timeout)
+        self.add_item(CreatePersonButton())
+        self.add_item(DeletePersonButton())
+        self.add_item(EditPersonButton())
+
+
+# -----------
+# CREATE PERSON
+# -----------
 class StartDateModal(ui.Modal, title="Enter one start date for the pattern"):
     day = ui.TextInput(label="Day:",
                        placeholder="5",

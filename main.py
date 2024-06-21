@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from settings import settings
-from applicationCommands.createPerson import PersonModal
+from applicationCommands.createPerson import PersonModal, PersonButtonsView
 from applicationCommands.createShiftsystem import ShiftsystemModel
 from applicationCommands.createComparisonTable import ComparisonTableModal
 from dataAccess.person_data_access import PersonDataAccess
@@ -47,6 +47,11 @@ async def person_modal(interaction: discord.Interaction):
 async def comparison_table_modal(interaction: discord.Interaction):
     modal = ComparisonTableModal()
     await interaction.response.send_modal(modal)
+
+
+@bot.tree.command(description="Enables you to create, delete or edit a person", name="person")
+async def person_options(interaction: discord.Interaction):
+    await interaction.response.send_message(view=PersonButtonsView())
 
 
 bot.run(settings.TOKEN)
