@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0f52668-907f-4831-bb70-3a0293183b88" name="Changes" comment="added option view to select if user want to create, delete or edit a person">
-      <change afterPath="$PROJECT_DIR$/applicationCommands/person/deletePerson.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/applicationCommands/person/options.py" afterDir="false" />
+    <list default="true" id="a0f52668-907f-4831-bb70-3a0293183b88" name="Changes" comment="new structure for the person functions&#10;delete person function implemented">
+      <change afterPath="$PROJECT_DIR$/applicationCommands/person/editPerson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationCommands/createPerson.py" beforeDir="false" afterPath="$PROJECT_DIR$/applicationCommands/person/createPerson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applicationCommands/person/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/applicationCommands/person/options.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataAccess/person_data_access.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataAccess/person_data_access.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,17 +53,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.personModal.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sebas/PycharmProjects/discordBot/dataAccess&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.main.executor": "Run",
+    "Python.personModal.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/sebas/PycharmProjects/discordBot/dataAccess",
+    "settings.editor.selected.configurable": "Errors"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sebas\PycharmProjects\discordBot\dataAccess" />
@@ -197,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718974037921</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="new structure for the person functions&#10;delete person function implemented">
+      <option name="closed" value="true" />
+      <created>1719065950534</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1719065950534</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,6 +228,7 @@
     <MESSAGE value="added user input validation for creating a person and a shiftsystem functions" />
     <MESSAGE value="adjustments comparison table and create person" />
     <MESSAGE value="added option view to select if user want to create, delete or edit a person" />
-    <option name="LAST_COMMIT_MESSAGE" value="added option view to select if user want to create, delete or edit a person" />
+    <MESSAGE value="new structure for the person functions&#10;delete person function implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="new structure for the person functions&#10;delete person function implemented" />
   </component>
 </project>

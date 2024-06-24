@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
 from settings import settings
-from applicationCommands.person.createPerson import PersonModal
 from applicationCommands.person.options import PersonButtonsView
 from applicationCommands.createShiftsystem import ShiftsystemModel
 from applicationCommands.createComparisonTable import ComparisonTableModal

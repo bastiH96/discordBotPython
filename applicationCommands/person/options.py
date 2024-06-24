@@ -2,6 +2,7 @@ from discord import ui
 import discord
 from applicationCommands.person.createPerson import PersonModal
 from applicationCommands.person.deletePerson import DeletePersonSelectView
+from applicationCommands.person.editPerson import EditPersonSelectView
 
 
 class CreatePersonButton(ui.Button):
@@ -23,6 +24,9 @@ class DeletePersonButton(ui.Button):
 class EditPersonButton(ui.Button):
     def __init__(self):
         super().__init__(label="Edit Person")
+
+    async def callback(self, interaction: discord.Interaction):
+        await interaction.response.send_message(view=EditPersonSelectView())
 
 
 class PersonButtonsView(ui.View):

@@ -41,6 +41,7 @@ class PersonDataAccess:
                                     person.shiftpattern_start_date.isoformat(),
                                     person.shiftsystem_id))
         self.connection.commit()
+        self.connection.close()
 
     def get_one_person(self, id: int):
         query = """
@@ -61,6 +62,7 @@ class PersonDataAccess:
         except TypeError:
             shiftsystem = None
         person = Person(result[1], result[2], date.fromisoformat(result[3]), result[0], result[5], shiftsystem)
+        self.connection.close()
         return person
 
     def get_all_persons(self) -> List[Person]:
@@ -83,6 +85,7 @@ class PersonDataAccess:
                 shiftsystem = None
             person = Person(result[1], result[2], date.fromisoformat(result[3]), result[0], result[5], shiftsystem)
             list_of_persons.append(person)
+        self.connection.close()
         return list_of_persons
 
     def update_person(self, person: Person):
@@ -113,3 +116,4 @@ class PersonDataAccess:
         """
         self.cursor.execute(query, (id,))
         self.connection.commit()
+        self.connection.close()
