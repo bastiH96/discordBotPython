@@ -20,7 +20,7 @@ class PersonsSelect(ui.Select):
     async def callback(self, interaction: discord.Interaction):
         persons = [PersonDataAccess().get_one_person(int(id)) for id in self.values]
         full_path = ExcelService(persons, comparison_table_infos["year"]).create_excel_comparison_table()
-        message = f"Here is your comparison table for {comparison_table_infos["year"]}"
+        message = f"Here is your comparison table for {comparison_table_infos['year']}"
         await interaction.response.send_message(content=message, file=discord.File(fp=full_path))
         time.sleep(2)
         os.remove(full_path)

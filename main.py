@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 from settings import settings
 from applicationCommands.person.options import PersonButtonsView
-from applicationCommands.createShiftsystem import ShiftsystemModel
+from applicationCommands.createShiftsystem import ShiftsystemModal
 from applicationCommands.createComparisonTable import ComparisonTableModal
 from dataAccess.person_data_access import PersonDataAccess
 from dataAccess.shiftsystem_data_access import ShiftsystemDataAccess
@@ -33,7 +33,7 @@ bot = MyClient()
 
 @bot.tree.command(description="create a new shiftsystem", name="create_shiftsystem")
 async def shiftsystem_modal(interaction: discord.Interaction):
-    modal = ShiftsystemModel()
+    modal = ShiftsystemModal()
     await interaction.response.send_modal(modal)
 
 

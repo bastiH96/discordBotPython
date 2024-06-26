@@ -70,10 +70,16 @@ class ChangeNameModal(ui.Modal, title=f"Change {selected_person.name}'s name"):
                         required=True)
 
     async def on_submit(self, interaction: discord.Interaction):
-        updated_person_info["name"] = self.name.value
-
-        await interaction.response.send_message(content=f"Name changed to '{self.name.value}'. Do you also want to "
-                                                        f"change the alias?")
+        if "alias" in updated_person_info:
+            selected_person.name = self.name.value
+            selected_person.alias = updated_person_info["alias"]
+            PersonDataAccess().update_person(selected_person)
+            await interaction.response.send_message(f"{selected_person.name} successfully updated!")
+        else:
+            updated_person_info["name"] = self.name.value
+            await interaction.response.send_message(content=f"Name changed to '{self.name.value}'. Do you also want to "
+                                                            f"change the alias?",
+                                                    view=AskForAliasChangeSelectView())
 
 
 class ChangeAliasModal(ui.Modal, title=f"Change {selected_person.name}'s alias"):
@@ -82,9 +88,16 @@ class ChangeAliasModal(ui.Modal, title=f"Change {selected_person.name}'s alias")
                          required=True)
 
     async def on_submit(self, interaction: discord.Interaction):
-        updated_person_info["alias"] = self.alias.value
-        await interaction.response.send_message(content=f"Alias changed to '{self.alias.value}'. Do you also want to "
-                                                        f"change the alias?")
+        if "name" in updated_person_info:
+            selected_person.name = updated_person_info["name"]
+            selected_person.alias = self.alias.value
+            PersonDataAccess().update_person(selected_person)
+            await interaction.response.send_message(f"{selected_person.name} successfully updated!")
+        else:
+            updated_person_info["alias"] = self.alias.value
+            await interaction.response.send_message(content=f"Alias changed to '{self.alias.value}'. Do you also want "
+                                                            f"to change the name?",
+                                                    view=AskForNameChangeSelectView())
 
 
 class ChangeStartDateModal(ui.Modal, title=f"Change {selected_person.name}'s start date for the pattern"):
@@ -119,28 +132,44 @@ class ShiftsystemSelectView(ui.View):
         self.add_item(ShiftsystemSelect())
 
 
-# needs to be changed to two selects! one for alias and one for name!
-class ChangeAlsoAliasOrNameSelect(ui.Select):
+class AskForAliasChangeSelect(ui.Select):
     def __init__(self):
-        options = [discord.SelectOption(label="YES", value="yes"),
-                   discord.SelectOption(label="NO", value="no")]
+        options = [discord.SelectOption(label="Yes", value="yes"),
+                   discord.SelectOption(label="No", value="no")]
         super().__init__(placeholder="Select an answer", min_values=1, max_values=1, options=options)
 
     async def callback(self, interaction: discord.Interaction):
         if self.values[0] == "no":
-            if "name" in updated_person_info:
-                selected_person.name = updated_person_info["name"]
-            elif "alias" in updated_person_info:
-                selected_person.alias = updated_person_info["alias"]
+            print(updated_person_info["name"])
+            selected_person.name = updated_person_info["name"]
             PersonDataAccess().update_person(selected_person)
+            await interaction.response.send_message("Name changed successfully!")
         elif self.values[0] == "yes":
-            if "name" in updated_person_info:
-                await interaction.response.send_modal(ChangeAliasModal())
-            elif "alias" in updated_person_info:
-                await interaction.response.send_modal(ChangeNameModal())
+            await interaction.response.send_modal(ChangeAliasModal())
 
 
-class ChangeAlsoAliasOrNameSelectView(ui.View):
+class AskForAliasChangeSelectView(ui.View):
     def __init__(self, *, timeout=180):
         super().__init__(timeout=timeout)
-        self.add_item(ChangeAlsoAliasOrNameSelect())
+        self.add_item(AskForAliasChangeSelect())
+
+
+class AskForNameChangeSelect(ui.Select):
+    def __init__(self):
+        options = [discord.SelectOption(label="Yes", value="yes"),
+                   discord.SelectOption(label="No", value="no")]
+        super().__init__(placeholder="Select an answer", min_values=1, max_values=1, options=options)
+
+    async def callback(self, interaction: discord.Interaction):
+        if self.values[0] == "no":
+            selected_person.alias = updated_person_info["alias"]
+            PersonDataAccess().update_person(selected_person)
+            await interaction.response.send_message("Alias changed successfully!")
+        elif self.values[0] == "yes":
+            await interaction.response.send_modal(ChangeNameModal())
+
+
+class AskForNameChangeSelectView(ui.View):
+    def __init__(self, *, timeout=180):
+        super().__init__(timeout=timeout)
+        self.add_item(AskForNameChangeSelect())

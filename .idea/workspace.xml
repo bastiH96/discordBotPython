@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0f52668-907f-4831-bb70-3a0293183b88" name="Changes" comment="new structure for the person functions&#10;delete person function implemented">
-      <change afterPath="$PROJECT_DIR$/applicationCommands/person/editPerson.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/discordBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discordBot.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applicationCommands/person/options.py" beforeDir="false" afterPath="$PROJECT_DIR$/applicationCommands/person/options.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataAccess/person_data_access.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataAccess/person_data_access.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applicationCommands/createComparisonTable.py" beforeDir="false" afterPath="$PROJECT_DIR$/applicationCommands/createComparisonTable.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applicationCommands/createShiftsystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/applicationCommands/createShiftsystem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applicationCommands/person/editPerson.py" beforeDir="false" afterPath="$PROJECT_DIR$/applicationCommands/person/editPerson.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/excelCalculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/excelCalculator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,17 +55,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.main.executor": "Run",
-    "Python.personModal.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/sebas/PycharmProjects/discordBot/dataAccess",
-    "settings.editor.selected.configurable": "Errors"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.personModal.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sebas/PycharmProjects/discordBot/dataAccess&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sebas\PycharmProjects\discordBot\dataAccess" />
@@ -113,7 +115,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5b207ade9991-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17890.14" />
+        <option value="bundled-python-sdk-0509580d9d50-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.14494.241" />
       </set>
     </attachedChunks>
   </component>

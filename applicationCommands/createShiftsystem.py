@@ -6,7 +6,7 @@ from services.validation import Validator
 from typing import List
 
 
-class ShiftsystemModel(ui.Modal, title="Create new Shiftsystem"):
+class ShiftsystemModal(ui.Modal, title="Create new Shiftsystem"):
     name = ui.TextInput(
         label="Name:",
         placeholder="Enter the name of the shiftsystem",
