@@ -2,6 +2,7 @@ import sqlite3
 import json
 from models.shiftsystem import Shiftsystem
 from settings import settings
+from dataAccess.person_data_access import PersonDataAccess
 
 
 class ShiftsystemDataAccess:
@@ -68,12 +69,16 @@ class ShiftsystemDataAccess:
         self.cursor.execute(query, (shiftsystem.name, json.dumps(shiftsystem.shiftpattern), shiftsystem.id))
         self.connection.commit()
         
-    def delete_shiftsystem(self, id: int):
-        query = """
-        DELETE FROM
-            shiftsystem
-        WHERE
-            id = ?
-        """
-        self.cursor.execute(query, (id,))
-        self.connection.commit()
+    def delete_shiftsystem(self, id: int) -> bool:
+        if PersonDataAccess().is_shiftsystem_id_used_by_person(id):
+            return False
+        else:
+            query = """
+            DELETE FROM
+                shiftsystem
+            WHERE
+                id = ?
+            """
+            self.cursor.execute(query, (id,))
+            self.connection.commit()
+            return True

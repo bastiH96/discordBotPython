@@ -23,7 +23,7 @@ class PersonDataAccess:
                 alias TEXT NOT NULL,
                 shiftpattern_start_date TEXT NOT NULL,
                 shiftsystem_id INTEGER,
-                FOREIGN KEY (shiftsystem_id) REFERENCES shiftsystem (id)
+                FOREIGN KEY (shiftsystem_id) REFERENCES shiftsystem (id) ON DELETE RESTRICT
             )
         """
         self.cursor.execute(query)
@@ -62,7 +62,6 @@ class PersonDataAccess:
         except TypeError:
             shiftsystem = None
         person = Person(result[1], result[2], date.fromisoformat(result[3]), result[0], result[5], shiftsystem)
-        self.connection.close()
         return person
 
     def get_all_persons(self) -> List[Person]:
@@ -85,7 +84,6 @@ class PersonDataAccess:
                 shiftsystem = None
             person = Person(result[1], result[2], date.fromisoformat(result[3]), result[0], result[5], shiftsystem)
             list_of_persons.append(person)
-        self.connection.close()
         return list_of_persons
 
     def update_person(self, person: Person):
@@ -116,4 +114,18 @@ class PersonDataAccess:
         """
         self.cursor.execute(query, (id,))
         self.connection.commit()
-        self.connection.close()
+
+    def is_shiftsystem_id_used_by_person(self, shiftsystem_id: int):
+        query="""
+        SELECT
+            *
+        FROM
+            person
+        WHERE
+            shiftsystem_id = ?
+        """
+        results = self.cursor.execute(query, (shiftsystem_id,)).fetchall()
+        if len(results) > 0:
+            return True
+        else:
+            return False
