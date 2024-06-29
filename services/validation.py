@@ -42,9 +42,7 @@ class Validator:
             return False
 
     @staticmethod
-    def is_valid_year(year):
+    def is_valid_year(year) -> bool:
         if date.today().year - 50 <= int(year) <= date.today().year + 50:
             return True
         return False
-
-

@@ -1,11 +1,13 @@
 import discord
 from discord.ext import commands
 from settings import settings
-from applicationCommands.person.options import PersonButtonsView
-from applicationCommands.createShiftsystem import ShiftsystemModal
-from applicationCommands.createComparisonTable import ComparisonTableModal
+
 from dataAccess.person_data_access import PersonDataAccess
 from dataAccess.shiftsystem_data_access import ShiftsystemDataAccess
+
+from applicationCommands.person.personOptions import PersonButtonsView
+from applicationCommands.shiftsystem.shiftsystemOptions import ShiftsystemButtonsView
+from applicationCommands.createComparisonTable import ComparisonTableModal
 
 
 class MyClient(commands.Bot):
@@ -31,21 +33,19 @@ class MyClient(commands.Bot):
 bot = MyClient()
 
 
-@bot.tree.command(description="create a new shiftsystem", name="create_shiftsystem")
+@bot.tree.command(description="Enables you to create, delete or edit shiftsystems", name="shiftsystem")
 async def shiftsystem_modal(interaction: discord.Interaction):
-    modal = ShiftsystemModal()
-    await interaction.response.send_modal(modal)
+    await interaction.response.send_message(view=ShiftsystemButtonsView())
+
+
+@bot.tree.command(description="Enables you to create, delete or edit persons", name="person")
+async def person_options(interaction: discord.Interaction):
+    await interaction.response.send_message(view=PersonButtonsView())
 
 
 @bot.tree.command(description="create a new comparison table", name="create_comparison_table")
 async def comparison_table_modal(interaction: discord.Interaction):
     modal = ComparisonTableModal()
     await interaction.response.send_modal(modal)
-
-
-@bot.tree.command(description="Enables you to create, delete or edit a person", name="person")
-async def person_options(interaction: discord.Interaction):
-    await interaction.response.send_message(view=PersonButtonsView())
-
 
 bot.run(settings.TOKEN)

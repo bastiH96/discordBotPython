@@ -5,7 +5,7 @@ from dataAccess.shiftsystem_data_access import ShiftsystemDataAccess
 from services.validation import Validator
 from typing import List
 
-
+# TODO: shiftpattern still accepts empty inputs after , or \n. This needs to be fixed
 class ShiftsystemModal(ui.Modal, title="Create new Shiftsystem"):
     name = ui.TextInput(
         label="Name:",
@@ -24,7 +24,7 @@ class ShiftsystemModal(ui.Modal, title="Create new Shiftsystem"):
             shiftpattern = self.get_shiftpattern_from_string(self.pattern.value)
             shiftsystem = Shiftsystem(self.name.value, shiftpattern)
             ShiftsystemDataAccess().insert_shiftsystem(shiftsystem)
-            message = "valid pattern!"
+            message = "Shiftsystem has been created successfully!"
 
         await interaction.response.send_message(message)
 
